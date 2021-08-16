@@ -1,0 +1,191 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --color-white: #fff;
+    --color-black: #000;
+    --text-black: #333;
+    --text-gray: #949494;
+    --color-primary: #ee4d2d;
+    --color-border: #dbdbdb;
+    --color-item-hover: #e9e8e8;
+    --content-bg-color: #f4f3f4;
+
+    --header__height: 120px;
+    --header__nav-height: 34px;
+    --header__with-search-height: calc(var(--header__height) - var(--header__nav-height));
+    --header__search-bar-height: 46px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Common style */
+.text-strong{
+    font-weight: 600;
+}
+
+/* Animation */
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes showFromTopLeft {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growth {
+    0%{
+        opacity: 0;
+        transform: scale(var(--growthFrom));
+    }   
+    100%{
+        opacity: 1;
+        transform: scale(var(--growthTo));
+    }
+}
+
+/* Common CSS */
+
+.fab.fa-google{
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.input-control{
+    width: 100%;
+    font-size: 1.4rem;
+    height: 36px;   
+    padding: 0 16px;
+    border: 1px var(--color-border) solid;
+    border-radius: 2px;
+    outline: none;
+    color: var(--text-black);
+}
+
+.input-control::placeholder{
+    color: #999;
+    font-weight: 300;
+}
+
+.input-control:focus{
+    border-color: #999;
+}
+
+.btn{
+    background-color: var(--color-white);
+    padding: 8px 28px;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: var(--text-black);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.btn--primary{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn.btn--normal:hover{
+    background-color: #eeeddd;
+}
+
+
+
+/* Modal */
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+
+.modal-show{
+    display: flex;
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body{
+    --growthFrom: 0.3;
+    --growthTo: 1;
+    z-index: 1;
+    margin: auto;
+    animation: growth linear 0.2s;
+}
+
+/* Pagination */
+.pagination__list{
+    margin: 0 auto;
+    display: flex;
+    list-style-type: none;
+}
+
+.pagination__item{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 40px;
+    margin: 0 18px;
+}
+
+.pagination__link{ 
+    --height: 30px;
+    display: block;
+    width: 100%;
+    height: var(--height);
+    line-height: var(--height);
+    font-size: 2rem;
+    text-decoration: none;
+    color: #a19fa1;
+    border-radius: 2px;
+}
+
+.pagination__item.active .pagination__link{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.pagination__item.active:hover .pagination__link{
+    opacity: 0.85;
+}
+
+.pagination__icon{
+    font-size: 1.6rem;
+}
